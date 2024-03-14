@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "module": "ESNext",
+    "allowJs": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "moduleResolution": "node"
+  }
+}

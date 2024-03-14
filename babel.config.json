@@ -1,0 +1,13 @@
+{
+  "comments": false,
+  "presets": [
+    [
+      "@babel/preset-env"
+    ],
+    "@babel/preset-typescript"
+  ],
+  "ignore": [
+    "**/tests",
+    "**/*.d.ts"
+  ]
+}
