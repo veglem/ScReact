@@ -10,7 +10,7 @@ const renderElement = (rootNode: VDomNode): HTMLElement | Text => {
         if(rootNode.instance) {
             const elem = renderElement(rootNode.instance.render())
             if ("ref" in rootNode.props) {
-                rootNode.props.ref = elem;
+                rootNode.props.ref(elem as HTMLElement);
             }
             rootNode.instance.notifyMounted(elem as HTMLElement)
             return elem
@@ -19,7 +19,7 @@ const renderElement = (rootNode: VDomNode): HTMLElement | Text => {
         rootNode.instance = new rootNode.component()
         const elem = renderElement( rootNode.instance.initProps(rootNode.props))
         if ("ref" in rootNode.props) {
-            rootNode.props.ref = elem;
+            rootNode.props.ref(elem as HTMLElement);
         }
         rootNode.instance.notifyMounted(elem as HTMLElement)
         return elem
@@ -28,7 +28,7 @@ const renderElement = (rootNode: VDomNode): HTMLElement | Text => {
     const elem = document.createElement(rootNode.tagname)
 
     if (rootNode.kind == "element" && "ref" in rootNode.props) {
-        rootNode.props.ref = elem;
+        rootNode.props.ref(elem);
     }
 
     for (const att in (rootNode.props || {})) {

@@ -6,14 +6,14 @@ export interface VDOMElement {
     kind: 'element'
     tagname: string
     childeren?: VDomNode[]
-    props?: VDOMAttributes & {ref?: HTMLElement}
+    props?: VDOMAttributes & {ref?: (val: HTMLElement) => {}}
     key: string
 }
 
 export interface VDOMComponent {
     kind: 'component'
     instance?: Component<any, any>
-    props: object
+    props: object & {ref?: (val: HTMLElement) => {}}
     component: { new(): Component<any, any> }
     key: string
 }
