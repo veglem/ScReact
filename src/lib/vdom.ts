@@ -6,7 +6,7 @@ export interface VDOMElement {
     kind: 'element'
     tagname: string
     childeren?: VDomNode[]
-    props?: VDOMAttributes
+    props?: VDOMAttributes & {ref?: HTMLElement}
     key: string
 }
 
