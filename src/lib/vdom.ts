@@ -32,9 +32,12 @@ export type VDomNode =
 export const createElement = (tagname: string, props: VDOMAttributes & { key: string }, ...childeren: VDomNode[]): VDOMElement => {
     const key = props.key
     delete props.key
-    return ({ kind: 'element',
-        tagname, props,
-        childeren, key
+    return ({
+        kind: 'element',
+        tagname,
+        props,
+        childeren,
+        key
     })
 }
 

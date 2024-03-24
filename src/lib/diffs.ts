@@ -1,4 +1,5 @@
 import { VDOMAttributes, VDomNode } from "./vdom";
+import {isEqual} from "./isEqual";
 
 type AttributesUpdater = {
     set: VDOMAttributes
@@ -55,10 +56,6 @@ const update = (attributes: AttributesUpdater, childeren: ChildUpdater[]): Updat
 const remove = (): RemoveOperation => ({ kind: 'remove' })
 
 const insert = (node: VDomNode): InsertOperation => ({ kind: 'insert', node })
-
-const isEqual = (val1: any, val2: any): boolean => {
-    return false
-}
 
 export const createDiff = (oldNode: VDomNode, newNode: VDomNode): VDomNodeUpdater => {
     // skip over text nodes with the same text

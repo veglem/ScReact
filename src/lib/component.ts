@@ -25,6 +25,13 @@ export abstract class Component<P, S> {
         return this.getUpdateDiff()
     }
 
+    public getRef() {
+        if(this.mountedElement == null)
+            throw new Error("You are getting instance inmounted component")
+
+        return this.mountedElement;
+    }
+
     public initProps(props: P): VDomNode {
         this.props = props
         this.currentRootNode = this.render()

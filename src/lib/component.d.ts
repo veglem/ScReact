@@ -7,6 +7,7 @@ export declare abstract class Component<P, S> {
     private mountedElement;
     protected setState(updater: (s: S) => S): void;
     setProps(props: P): VDomNodeUpdater;
+    getRef(): HTMLElement | Text;
     initProps(props: P): VDomNode;
     private getUpdateDiff;
     notifyMounted(elem: HTMLElement | Text): void;
