@@ -83,7 +83,11 @@ const applyChildrenDiff = (elem: HTMLElement, operations: ChildUpdater[]) => {
         const childElem = elem.childNodes[i + offset]
 
         if (childUpdater.kind == 'remove') {
-            childElem.remove()
+            try {
+                childElem.remove()
+            } catch (e) {
+                console.log(e)
+            }
             offset -= 1
             continue
         }
